@@ -1,0 +1,51 @@
+name: Refresh Data
+
+on:
+  schedule:
+    # Run monthly on the 1st at 00:00 UTC
+    - cron: "0 0 1 * *"
+  workflow_dispatch:
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install dependencies
+        run: |
+          cd backend
+          pip install -r requirements.txt
+      - name: Fetch fresh Philippine data
+        run: |
+          cd backend
+          python -m core.data.fetch_philippines
+        timeout-minutes: 60
+      - name: Verify data quality
+        run: |
+          cd backend
+          python -c "
+          import pandas as pd
+          for name in ['palawan', 'sierra_madre']:
+              df = pd.read_csv(f'data/raw/{name}_grid.csv')
+              assert len(df) > 100, f'{name} has too few cells: {len(df)}'
+              print(f'{name}: {len(df)} cells, {df[\"high_risk\"].mean()*100:.1f}% high risk')
+          "
+      - name: Commit and push if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add backend/data/raw/*.csv
+          if git diff --staged --quiet; then
+            echo "No data changes detected"
+          else
+            git commit -m "chore: refresh Philippine deforestation data [automated]
+
+            Data sources: Hansen GFW, SRTM, OpenStreetMap
+            Triggered by: ${{ github.event_name }}"
+            git push
+          fi

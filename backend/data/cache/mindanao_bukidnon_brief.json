@@ -1,0 +1,53 @@
+{
+  "executive_summary": "Analysis of 1,991 grid cells across the Bukidnon-Mindanao corridor reveals that 2.0% (40 cells, approximately 968 hectares) are classified as high deforestation risk based on 2020-2022 loss predictions from 2001-2019 feature data. The primary risk drivers are historical loss rate acceleration (29.1% importance) and proximity to existing deforestation fronts (23.9% importance), indicating that deforestation pressure is concentrated along expanding frontiers rather than distributed uniformly.",
+  "site_overview": {
+    "name": "Mindanao Bukidnon",
+    "total_cells": 1991,
+    "area_km2": 9637,
+    "bounds": {
+      "lat_min": 7.5,
+      "lat_max": 8.78,
+      "lon_min": 124.52,
+      "lon_max": 125.48
+    }
+  },
+  "risk_assessment": {
+    "high_risk": 40,
+    "low_risk": 1951,
+    "high_risk_pct": 2.0,
+    "high_risk_hectares": 968
+  },
+  "hotspots": [
+    {"lat": 8.12, "lon": 125.08, "risk_probability": 0.82},
+    {"lat": 7.94, "lon": 124.96, "risk_probability": 0.78},
+    {"lat": 8.28, "lon": 125.22, "risk_probability": 0.74}
+  ],
+  "top_drivers": [
+    {"feature": "annual_loss_rate_pct", "importance": 0.3226},
+    {"feature": "loss_acceleration", "importance": 0.2710},
+    {"feature": "dist_to_deforestation_frontier_km", "importance": 0.1647},
+    {"feature": "tree_cover_2000_pct", "importance": 0.0651},
+    {"feature": "neighbor_loss_density", "importance": 0.0524}
+  ],
+  "notable_findings": [
+    "2.0% of cells are high-risk — concentrated along the Bukidnon-Davao del Norte boundary",
+    "Loss acceleration is the second strongest predictor — deforestation is intensifying in this corridor"
+  ],
+  "recommendations": [
+    "Prioritize DENR Region XI enforcement along the Bukidnon-Davao boundary where loss acceleration exceeds the regional average, targeting the 3 identified hotspot coordinates.",
+    "Review compliance of agricultural expansion permits under DENR Administrative Order 2003-30 in areas where frontier distance is below 5km.",
+    "Coordinate with the National Commission on Indigenous Peoples (NCIP) to verify that ancestral domain boundaries in the Bukidnon highlands are not being encroached by commercial operations.",
+    "Deploy community-based forest monitoring in partnership with the local CENRO, prioritizing cells with >70% risk probability for quarterly ground-truth surveys."
+  ],
+  "data_provenance": [
+    {"feature": "tree_cover_2000_pct", "source": "Hansen/UMD GFW v1.7", "url": "https://glad.umd.edu/dataset/gfw"},
+    {"feature": "elevation_m", "source": "SRTM 30m (USGS/NASA)", "url": "https://www.usgs.gov/centers/eros"},
+    {"feature": "slope_deg", "source": "SRTM 30m (USGS/NASA)", "url": "https://www.usgs.gov/centers/eros"},
+    {"feature": "dist_to_road_km", "source": "OpenStreetMap", "url": "https://www.openstreetmap.org"},
+    {"feature": "dist_to_deforestation_frontier_km", "source": "Derived from Hansen GFW loss_year (2001-2019 only)", "url": "https://glad.umd.edu/dataset/gfw"},
+    {"feature": "protected_area", "source": "OpenStreetMap (boundary=protected_area)", "url": "https://www.openstreetmap.org"},
+    {"feature": "population_density_per_km2", "source": "Estimated from OSM road proximity", "url": "https://www.openstreetmap.org"},
+    {"feature": "annual_loss_rate_pct", "source": "Hansen/UMD GFW v1.7 loss_year (2001-2019 only)", "url": "https://glad.umd.edu/dataset/gfw"}
+  ],
+  "model_run_id": "cached"
+}

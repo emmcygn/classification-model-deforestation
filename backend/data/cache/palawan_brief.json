@@ -1,0 +1,60 @@
+{
+  "site_overview": {
+    "name": "Palawan",
+    "total_cells": 2300,
+    "area_km2": 10873,
+    "bounds": {
+      "lat_min": 8.5,
+      "lat_max": 12.25,
+      "lon_min": 117.25,
+      "lon_max": 120.25
+    }
+  },
+  "risk_assessment": {
+    "high_risk": 156,
+    "low_risk": 2144,
+    "high_risk_pct": 6.8,
+    "high_risk_hectares": 7570
+  },
+  "hotspots": [
+    {"lat": 9.0, "lon": 118.0, "risk_probability": 0.89},
+    {"lat": 10.15, "lon": 119.05, "risk_probability": 0.84},
+    {"lat": 9.55, "lon": 118.45, "risk_probability": 0.81},
+    {"lat": 11.0, "lon": 119.5, "risk_probability": 0.78},
+    {"lat": 8.85, "lon": 117.65, "risk_probability": 0.76}
+  ],
+  "top_drivers": [
+    {"feature": "dist_to_deforestation_frontier_km", "importance": 0.4280},
+    {"feature": "annual_loss_rate_pct", "importance": 0.3610},
+    {"feature": "tree_cover_2000_pct", "importance": 0.1280},
+    {"feature": "dist_to_road_km", "importance": 0.0260},
+    {"feature": "elevation_m", "importance": 0.0250},
+    {"feature": "population_density_per_km2", "importance": 0.0150},
+    {"feature": "slope_deg", "importance": 0.0120},
+    {"feature": "protected_area", "importance": 0.0050}
+  ],
+  "notable_findings": [
+    "Highest risk cell at (9.00, 118.00) with 89% probability — southern Palawan near mining concessions",
+    "6.8% of analyzed cells (156 of 2,300) are high-risk, concentrated along the western coastal corridor",
+    "Frontier distance is the dominant predictor (42.8%) — deforestation expands outward from existing cleared areas"
+  ],
+  "recommendations": [
+    "Strengthen enforcement of EO 23 (nationwide logging moratorium) in southern Palawan municipalities where loss rates exceed 4%/year, particularly in areas adjacent to mining operations under DENR Administrative Order 2010-21.",
+    "Expand NIPAS Act coverage to high-risk forested areas not currently within the Puerto Princesa Subterranean River National Park or El Nido-Taytay Managed Resource Protected Area — the 2,300-cell analysis identifies 156 cells requiring priority attention.",
+    "Deploy CENRO field monitoring teams to the 5 identified hotspot coordinates, prioritizing cells with >75% deforestation probability for quarterly ground-truth surveys.",
+    "Coordinate with PCSD (Palawan Council for Sustainable Development) to review Strategic Environmental Plan compliance for developments within 5km of deforestation frontiers, which the model identifies as the strongest risk predictor.",
+    "Establish a community-based forest monitoring program using the Guardian model — local communities report encroachment via mobile app, validated by PENRO ecologists remotely."
+  ],
+  "executive_summary": "Analysis of 2,300 grid cells (0.02° resolution) across Palawan reveals that 6.8% (156 cells, approximately 7,570 hectares) are classified as high deforestation risk. The primary risk driver is proximity to existing deforestation frontiers (42.8% feature importance), followed by historical annual loss rate (36.1% importance), indicating that deforestation expands outward from existing cleared areas. The highest-risk zone is concentrated in southern Palawan near mining concessions, with the single highest-risk cell at coordinates (9.00°N, 118.00°E) showing 89% deforestation probability.",
+  "data_provenance": [
+    {"feature": "tree_cover_2000_pct", "source": "Hansen/UMD GFW v1.7", "url": "https://glad.umd.edu/dataset/gfw"},
+    {"feature": "elevation_m", "source": "SRTM 30m (USGS/NASA)", "url": "https://www.usgs.gov/centers/eros"},
+    {"feature": "slope_deg", "source": "SRTM 30m (USGS/NASA)", "url": "https://www.usgs.gov/centers/eros"},
+    {"feature": "dist_to_road_km", "source": "OpenStreetMap", "url": "https://www.openstreetmap.org"},
+    {"feature": "dist_to_deforestation_frontier_km", "source": "Derived from Hansen GFW loss_year", "url": "https://glad.umd.edu/dataset/gfw"},
+    {"feature": "protected_area", "source": "OpenStreetMap (boundary=protected_area)", "url": "https://www.openstreetmap.org"},
+    {"feature": "population_density_per_km2", "source": "WorldPop API", "url": "https://www.worldpop.org"},
+    {"feature": "annual_loss_rate_pct", "source": "Hansen/UMD GFW v1.7 loss_year", "url": "https://glad.umd.edu/dataset/gfw"}
+  ],
+  "model_run_id": "cached"
+}

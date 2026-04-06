@@ -1,0 +1,6 @@
+@import "tailwindcss";
+
+/* Boost GFW forest loss tile visibility — raw tiles are very dark at low zoom */
+.gfw-loss-layer img {
+  filter: brightness(3) saturate(2);
+}
